@@ -6,7 +6,7 @@ Comparing Logistic Regression and Decision Tree Classifier in Stroke prediction
 Stroke is a number no.5 cause of death in the United States [1]. Stroke is also common in Finland and approximately 24 000
 people suffer from stroke yearly [2]. The average healthcare costs from the onset of a stroke to the end of a patient’s life are
 significant per individual. Due to these reasons, we think it’s crucial to look more deeply into the impact of the risk factors of
-stroke. It's important to focus on actions before the occurrence of a stroke.
+stroke. It's important to focus on actions before the occurrence of a stroke. The goal of this project is to compare the performance of Logistic Regression and Decision Tree Classifier in predicting stroke occurrence based on health-related risk factor
 The structure of our report is divided insections. In section 2 we formulate the machine learning problem that our project deals
 with. The section 3 and 4 is devoted to the two methods that we use. In those sections, we cover the datasets and the process that
 we go through each method in its own section. In section 5 we will discuss the results that we discovered, and conclusions that
@@ -25,8 +25,8 @@ the data features and data points.
 We obtained our dataset for the machine learning project from Kaggle and it’s called “ Stroke prediction” [3]. We have 5110 data
 points and each data point corresponds to an individual or patient used for stroke prediction. In our dataset there are 9 columns
 each containing specific information about a person.
-We have 8 features in our dataset, which are Body Mass Index (BMI), smoking status, gender, age, hypertension, heart disease,
-work type, residence type and average glucose level. Heart disease and hypertension are binomial features and smoking status,
+We have 8 features and one target variable in our dataset, which are Body Mass Index (BMI), smoking status, gender, age, hypertension, heart disease,
+work type, residence type and average glucose level. Heart disease and hypertension are binary features and smoking status,
 work type, residence type and gender are categorical features. Age is a numerical feature and in our data set every individual's
 age is represented with a specific number. Our target variable is Stroke, thus our label is whether stroke occurs or not. Stroke
 occurrence can be described with the numbers 0 or 1, since our label is binary. If the number 0 occurs, it means that the person
@@ -39,12 +39,12 @@ the likelihood of stroke. We excluded three features from our data: ever married
 have the potential to give beneficial information, but we wanted to maintain a clear emphasis on the health aspects of Stroke risk.
 Therefore, we maintained Body Mass Index (BMI), smoking status, gender, age, hypertension, heart disease, and average glucose
 level. We know from a domain knowledge that hypertension, high bmi, smoking, heart disease, average glucose levels are risk
-factors for Stroke. We confirmed our knowledge from Käypähoito (Current Care guidelines) website, which is a trusted source of
+factors for Stroke. We confirmed our understanding from Käypähoito (Current Care guidelines) website, which is a trusted source of
 clinical practice guidelines in Finland. In additio to the mentioned health related factors, age is a major factor in the occurrence of
 a stroke. In the Käypä Hoito article it was stated that under the age of 75 men have two times higher risk of stroke compared to
 women, although after reaching the age of 85 women have greater risk than men. [12]
 ## 3.3 Preprocessing the data
-We binarized the features that weren’t already in binomial form. We changed the gender into binomial form, so 0 is male and 1 is
+We converted categorical features into binary form. We changed the gender into binary form, so 0 is male and 1 is
 female. There was “smokes”, “formerly smoked”, “never smoked” and “unknown” in our categorical feature smoking status. We
 replaced the unknown values to random values with the assistance of the TA. After that we combined “ formerly smoked” and
 “smokes” and replaced them with 1. We did this combination choice, because it simplifies interpretation and modeling. In
@@ -71,7 +71,7 @@ training set, because based on our machine learning lectures larger sets can be 
 patterns[1]. Furthermore, we put 15% of data into the validation set and keep 15% of the data for the testing. We tried various
 split size rations, but 70% turned out to be the best, since accuracy scores and F1-scores were the highest. We have 4908 data
 points as mentioned, and if our dataset would be very large, we would allocate a smaller portion for the training dataset to ensure
-a satisfactory amount of testing and validation set. Furthermore, the dataset would have been We need to use a larger percentage
+a satisfactory amount of testing and validation set. Furthermore,  We need to use a larger percentage
 for training to ensure that our data has enough data to learn from.
 ## 3.6 First Method: Logistic regression
 We chose logistic regression for our first method in this machine learning problem, because in our ML task we are predicting a
