@@ -32,7 +32,7 @@ age is represented with a specific number. Our target variable is Stroke, thus o
 occurrence can be described with the numbers 0 or 1, since our label is binary. If the number 0 occurs, it means that the person
 doesn’t have Stroke and if the number 1 occurs, the person has had Stroke. When we conducted our analysis, we noticed that our
 data is extremely unbalanced since we have only 209 Stroke instances and 4699 non-Stroke instances in the dataset.
-3.2 Feature selection
+## 3.2 Feature selection
 There is a similar problem solved in Kaggle, they use all the features and all the classification methods. [3] However, we had a
 clear vision on what features we wanted to focus on, since we were interested in health-related features that may directly affect
 the likelihood of stroke. We excluded three features from our data: ever married, residence type and worktype. These features
@@ -43,7 +43,7 @@ factors for Stroke. We confirmed our knowledge from Käypähoito (Current Care g
 clinical practice guidelines in Finland. In additio to the mentioned health related factors, age is a major factor in the occurrence of
 a stroke. In the Käypä Hoito article it was stated that under the age of 75 men have two times higher risk of stroke compared to
 women, although after reaching the age of 85 women have greater risk than men. [12]
-3.3 Preprocessing the data
+## 3.3 Preprocessing the data
 We binarized the features that weren’t already in binomial form. We changed the gender into binomial form, so 0 is male and 1 is
 female. There was “smokes”, “formerly smoked”, “never smoked” and “unknown” in our categorical feature smoking status. We
 replaced the unknown values to random values with the assistance of the TA. After that we combined “ formerly smoked” and
@@ -54,7 +54,7 @@ It is important to check if the data contains any null data. [luentodia]From the
 values in our dataset. The null values were in the BMI feature, because there were 201 columns with the value of zero. We
 decided to remove these missing values to ensure that we could have more reliable data. After removing the missing values, our
 data points were then reduced to 4908.
-3.4 Correlation between features
+## 3.4 Correlation between features
 The correlation matrix is used to understand the relationships between the features
 and one can also interpret the features that have the most impact on the target
 variable. The correlation coefficient 1 indicates a strong correlation between the
@@ -65,7 +65,7 @@ We can see that age, hypertension, heart disease and average glucose level have
 the most impact on stroke occurrence. Gender, BMI and smoking status have
 darker areas and smaller coefficient numbers, so the correlation is smaller with
 those features.
-3.5 Constructing data sets / Training, validation and test sets
+## 3.5 Constructing data sets / Training, validation and test sets
 We split our dataset into training, validation and test datasets with the use of sklearn library. We put 70% of our data into a
 training set, because based on our machine learning lectures larger sets can be helpful in detecting and capturing more complex
 patterns[1]. Furthermore, we put 15% of data into the validation set and keep 15% of the data for the testing. We tried various
@@ -73,7 +73,7 @@ split size rations, but 70% turned out to be the best, since accuracy scores and
 points as mentioned, and if our dataset would be very large, we would allocate a smaller portion for the training dataset to ensure
 a satisfactory amount of testing and validation set. Furthermore, the dataset would have been We need to use a larger percentage
 for training to ensure that our data has enough data to learn from.
-3.5 First Method: Logistic regression
+## 3.6 First Method: Logistic regression
 We chose logistic regression for our first method in this machine learning problem, because in our ML task we are predicting a
 categorical target variable to one of two possible outcomes - if our target variable, a stroke occurs then it’s described as 1, which
 stands for true and if it doesn’t then the target variable is described as 0 which stands for false. Furthermore, 0 means that the
@@ -87,7 +87,7 @@ the range of the predicted values is between 0 and 1.
 Before building the final Logistic Regression model for testing, we had to standardize our features preprocessing the data,
 because they had significantly different ranges of values. We noticed this, when we trained our Logistic regression model. We
 used StandardScaler function for training and test sets (can be seen in the appendix).
-3.6 The Loss function
+## 3.7 The Loss function
 We are using logistic loss as our loss function, as it is a powerful and common evaluating metric for binary classification
 methods, which our Logistic regression is. Logistic loss is the negative average of the corrected probabilities for each occurrence,
 which are in log.
@@ -97,7 +97,7 @@ The closer the loss function value is to 1, the better the classifier and the cl
 we got 0.43745 based on our output.
 We could have used the squared error loss, as our loss function. Nonetheless, logistic loss is a better choice, since we have
 classified data points with binary labels.
-4. Second method: Decision Tree Classifier
+# 4. Second method: Decision Tree Classifier
 The second method was selected to be Decision Tree Classifier which is also a classification method. The process of our selection
 was inspired by the information in our dataset. This method works well with missing data, which was our case in our features.
 The fact that Decision Tree Classifier can handle both numerical and categorical data made us choose this method since our data
@@ -120,7 +120,7 @@ criterion on pruning was set to “gini”, the maximum depth of the branches to
 chose the maximum depth to be two since we wanted to simplify our tree. Our new computed accuration increased to 0.77021
 which is not to our liking, so we stuck with our first accuracy. In the next section we tested our new Decision Tree with our loss
 function.
-4.1 Loss function
+## 4.1 Loss function
 In our Decision Tree model we are using Gini Impurity as a loss function. Gini Impurity indicates the likelihood of
 misclassification to happen in the dataset. The probability of misclassifying the features is low when the gini impurity is low. [9]
 The reasoning of us using gini impurity lies on the fact that it evaluates the best split when we have categorical features. [10]The
