@@ -20,8 +20,8 @@ occurs or not.
 The dataset was collected from a machine learning project from Kaggle and in it we found interesting data from which we
 collected the health related data we found the most useful in this project. In the next chapters we will tell more on how we chose
 the data features and data points.
-3. Methods
-3.1 Dataset & data
+# 3. Methods
+## 3.1 Dataset & data
 We obtained our dataset for the machine learning project from Kaggle and it’s called “ Stroke prediction” [3]. We have 5110 data
 points and each data point corresponds to an individual or patient used for stroke prediction. In our dataset there are 9 columns
 each containing specific information about a person.
